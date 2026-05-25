@@ -8,40 +8,73 @@ import { SITE_TITLE } from '../consts';
 
 		<!-- LOGO -->
 		<a href="/" class="logo">
-
 			<img src="/favicon.jpeg" alt="Logo" class="logo-image" />
 
 			<div class="logo-text">
 				<span class="logo-top">MALDONADO</span>
-				<span class="logo-bottom">ELÉCTRICOS ⚡</span>
+				<span class="logo-bottom">ELÉCTRICOS</span>
 			</div>
-
 		</a>
 
-		<!-- LINKS -->
+		<!-- LINKS DESKTOP -->
 		<div class="internal-links">
 			<HeaderLink href="/">Servicios</HeaderLink>
 			<HeaderLink href="/blog">Proyectos</HeaderLink>
 			<HeaderLink href="/about">Nosotros</HeaderLink>
 		</div>
 
-		<!-- CTA -->
+		<!-- CTA DESKTOP -->
 		<div class="right-section">
-			<a
-				href="mailto:maldonadoelectricos@gmail.com"
-				class="email-btn"
-			>
+			<a href="mailto:maldonadoelectricos@gmail.com" class="email-btn">
 				Contactar
 			</a>
 		</div>
 
-		<!-- MOBILE MENU -->
-		<button class="menu-btn">
-			☰
-		</button>
+		<!-- MOBILE BUTTON -->
+		<button class="menu-btn" id="menuBtn">☰</button>
 
 	</nav>
+
+	<!-- OVERLAY -->
+	<div class="overlay" id="overlay"></div>
+
+	<!-- MOBILE MENU -->
+	<div class="mobile-menu" id="mobileMenu">
+		<div class="mobile-links">
+			<HeaderLink href="/">Servicios</HeaderLink>
+			<HeaderLink href="/blog">Proyectos</HeaderLink>
+			<HeaderLink href="/about">Nosotros</HeaderLink>
+
+			<a href="mailto:maldonadoelectricos@gmail.com" class="email-btn mobile">
+				Contactar
+			</a>
+		</div>
+	</div>
 </header>
+
+<script>
+	const menuBtn = document.getElementById('menuBtn');
+	const mobileMenu = document.getElementById('mobileMenu');
+	const overlay = document.getElementById('overlay');
+
+	function toggleMenu() {
+		mobileMenu.classList.toggle('active');
+		overlay.classList.toggle('active');
+		document.body.classList.toggle('no-scroll');
+	}
+
+	menuBtn?.addEventListener('click', toggleMenu);
+	overlay?.addEventListener('click', toggleMenu);
+
+	// cerrar al hacer click en links
+	document.querySelectorAll('.mobile-menu a').forEach(link => {
+		link.addEventListener('click', () => {
+			mobileMenu.classList.remove('active');
+			overlay.classList.remove('active');
+			document.body.classList.remove('no-scroll');
+		});
+	});
+</script>
 
 <style>
 
@@ -49,51 +82,35 @@ import { SITE_TITLE } from '../consts';
 		position: sticky;
 		top: 0;
 		z-index: 1000;
-
 		padding: 1rem 2rem;
-
 		background: rgba(255, 255, 255, 0.9);
 		backdrop-filter: blur(10px);
-
 		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 	}
 
 	nav {
 		max-width: 1280px;
 		margin: 0 auto;
-
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
 		gap: 2rem;
 	}
 
-	/* LOGO */
-
+	/* LOGO (igual) */
 	.logo {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-
 		text-decoration: none;
-
 		min-width: fit-content;
 	}
-
 
 	.logo-image {
 		width: 72px;
 		height: auto;
-
 		object-fit: contain;
-
-		border-radius: 0;
-
-		display: block;
-
-		filter:
-			drop-shadow(0 8px 20px rgba(0,0,0,0.12));
+		filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12));
 	}
 
 	.logo-text {
@@ -105,22 +122,17 @@ import { SITE_TITLE } from '../consts';
 	.logo-top {
 		font-size: 1.3rem;
 		font-weight: 800;
-		letter-spacing: 1px;
-
 		color: #111827;
 	}
 
 	.logo-bottom {
 		font-size: 1.1rem;
 		font-weight: 600;
-
 		color: #f59e0b;
-
 		margin-top: 0.3rem;
 	}
 
-	/* LINKS */
-
+	/* DESKTOP LINKS */
 	.internal-links {
 		display: flex;
 		align-items: center;
@@ -128,45 +140,14 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	.internal-links a {
-		position: relative;
-
 		text-decoration: none;
-
 		color: #374151;
 		font-weight: 500;
-
+		position: relative;
 		padding: 0.5rem 0;
-
-		transition: 0.3s ease;
 	}
 
-	.internal-links a:hover {
-		color: #111827;
-	}
-
-	.internal-links a::after {
-		content: '';
-
-		position: absolute;
-		left: 0;
-		bottom: -4px;
-
-		width: 0%;
-		height: 2px;
-
-		background: #f59e0b;
-
-		border-radius: 999px;
-
-		transition: 0.3s ease;
-	}
-
-	.internal-links a:hover::after {
-		width: 100%;
-	}
-
-	/* RIGHT */
-
+	/* CTA */
 	.right-section {
 		display: flex;
 		align-items: center;
@@ -174,58 +155,84 @@ import { SITE_TITLE } from '../consts';
 
 	.email-btn {
 		padding: 0.9rem 1.4rem;
-
 		border-radius: 999px;
-
 		background: #111827;
 		color: white;
-
 		text-decoration: none;
-
 		font-size: 0.9rem;
-		font-weight: 500;
-
-		transition: 0.3s ease;
-
-		box-shadow:
-			0 10px 25px rgba(17, 24, 39, 0.15);
-	}
-
-	.email-btn:hover {
-		background: #1f2937;
-		transform: translateY(-2px);
 	}
 
 	/* MENU BUTTON */
-
 	.menu-btn {
 		display: none;
-
 		border: none;
 		background: transparent;
-
 		font-size: 1.8rem;
 		cursor: pointer;
+	}
 
+	/* OVERLAY */
+	.overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0,0,0,0.4);
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.3s ease;
+		z-index: 999;
+	}
+
+	.overlay.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	/* MOBILE MENU */
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 280px;
+		background: white;
+		transform: translateX(100%);
+		transition: 0.3s ease;
+		z-index: 1000;
+		padding: 2rem 1.5rem;
+		box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+	}
+
+	.mobile-menu.active {
+		transform: translateX(0);
+	}
+
+	.mobile-links {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		margin-top: 2rem;
+	}
+
+	.mobile-menu a {
+		text-decoration: none;
+		font-size: 1.1rem;
 		color: #111827;
 	}
 
-	/* MOBILE */
+	.email-btn.mobile {
+		margin-top: 1rem;
+		text-align: center;
+	}
 
+	/* PREVENT SCROLL */
+	.no-scroll {
+		overflow: hidden;
+	}
+
+	/* MOBILE */
 	@media (max-width: 900px) {
 
-		header {
-			padding: 1rem;
-		}
-
-		nav {
-			gap: 1rem;
-		}
-
-		.internal-links {
-			display: none;
-		}
-
+		.internal-links,
 		.right-section {
 			display: none;
 		}
@@ -237,29 +244,6 @@ import { SITE_TITLE } from '../consts';
 		.logo-image {
 			width: 48px;
 			height: 48px;
-		}
-
-		.logo-top {
-			font-size: 1rem;
-		}
-
-		.logo-bottom {
-			font-size: 0.9rem;
-		}
-	}
-
-	@media (max-width: 500px) {
-
-		.logo-top {
-			font-size: 0.9rem;
-		}
-
-		.logo-bottom {
-			font-size: 0.8rem;
-		}
-
-		.logo {
-			gap: 0.7rem;
 		}
 	}
 
