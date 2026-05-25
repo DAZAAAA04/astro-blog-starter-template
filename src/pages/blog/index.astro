@@ -2,110 +2,364 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+const projects = [
+	{
+		title: 'Proyecto Mina Calenturita',
+		category: 'MINERÍA',
+		description:
+			'Instalación de sistema de medida en media tensión 34.5kv en subestación principal.',
+		image:
+			'https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1200&auto=format&fit=crop',
+	},
+
+	{
+		title: 'Proyecto PTI Trancelca',
+		category: 'ENERGÍA',
+		description:
+			'Pruebas de factor de potencia y excitación para transformador de 120mva.',
+		image:
+			'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop',
+	},
+
+	{
+		title: 'Hospital Santo Tomás',
+		category: 'HOSPITALES',
+		description:
+			'Mantenimiento preventivo y correctivo en subestación principal de 300kva.',
+		image:
+			'https://images.unsplash.com/photo-1581092921461-eab10380d6df?q=80&w=1200&auto=format&fit=crop',
+	},
+
+	{
+		title: 'Cemex Colombia',
+		category: 'INDUSTRIA',
+		description:
+			'Mantenimiento eléctrico, transformación y control de plantas industriales.',
+		image:
+			'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop',
+	},
+
+	{
+		title: 'Proyecto Procaps',
+		category: 'AUTOMATIZACIÓN',
+		description:
+			'Armado de tablero de control y fuerza para sistemas de enfriamiento industrial.',
+		image:
+			'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+	},
+
+	{
+		title: 'Sociedad Portuaria',
+		category: 'MEDIA TENSIÓN',
+		description:
+			'Tendido e instalación de cable XLP subterráneo para sistema de anillo en media tensión.',
+		image:
+			'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop',
+	},
+];
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+<html lang="es">
+
+<head>
+	<BaseHead
+		title={`Proyectos | ${SITE_TITLE}`}
+		description={SITE_DESCRIPTION}
+	/>
+</head>
+
+<body>
+
+	<Header />
+
+	<main>
+
+		<!-- HERO -->
+
+		<section class="hero">
+
+			<div class="hero-content">
+
+				<span class="badge">
+					PROYECTOS INDUSTRIALES
+				</span>
+
+				<h1>
+					Experiencia real en ingeniería eléctrica
+				</h1>
+
+				<p>
+					Hemos desarrollado proyectos para minería,
+					hospitales, industria energética y automatización
+					con altos estándares de calidad y seguridad.
+				</p>
+
+			</div>
+
+		</section>
+
+		<!-- PROJECTS -->
+
+		<section class="projects">
+
+			<div class="section-title">
+
+				<span>NUESTROS PROYECTOS</span>
+
+				<h2>
+					Soluciones ejecutadas en Colombia
+				</h2>
+
+			</div>
+
+			<div class="projects-grid">
+
+				{
+					projects.map((project) => (
+
+						<div class="project-card">
+
+							<img
+								src={project.image}
+								alt={project.title}
+							/>
+
+							<div class="project-content">
+
+								<span class="project-tag">
+									{project.category}
+								</span>
+
+								<h3>
+									{project.title}
+								</h3>
+
+								<p>
+									{project.description}
+								</p>
+
+							</div>
+
+						</div>
+
+					))
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<Footer />
+
+</body>
 </html>
+
+<style>
+
+	body {
+		background: #f3f4f6;
+		font-family: sans-serif;
+		color: #111827;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	/* HERO */
+
+	.hero {
+		max-width: 1280px;
+		margin: 0 auto;
+
+		padding: 2rem 2rem 4rem;
+	}
+
+	.hero-content {
+		background: white;
+
+		border-radius: 36px;
+
+		padding: 4rem;
+
+		box-shadow:
+			0 20px 60px rgba(0,0,0,0.05);
+
+		text-align: center;
+	}
+
+	.badge {
+		display: inline-flex;
+
+		padding: 0.5rem 1rem;
+
+		border-radius: 999px;
+
+		background: rgba(245, 158, 11, 0.12);
+
+		color: #d97706;
+
+		font-size: 0.9rem;
+		font-weight: 700;
+
+		margin-bottom: 1.5rem;
+	}
+
+	.hero h1 {
+		font-size: 4rem;
+		line-height: 1.1;
+
+		margin-bottom: 1.5rem;
+	}
+
+	.hero p {
+		max-width: 700px;
+		margin: 0 auto;
+
+		font-size: 1.1rem;
+		line-height: 1.8;
+
+		color: #6b7280;
+	}
+
+	/* SECTION */
+
+	.projects {
+		max-width: 1280px;
+		margin: 0 auto;
+
+		padding: 0 2rem 5rem;
+	}
+
+	.section-title {
+		margin-bottom: 3rem;
+	}
+
+	.section-title span {
+		color: #f59e0b;
+		font-size: 0.9rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+
+	.section-title h2 {
+		font-size: 3rem;
+		margin-top: 1rem;
+	}
+
+	/* GRID */
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+
+	/* CARD */
+
+	.project-card {
+		background: white;
+
+		border-radius: 30px;
+
+		overflow: hidden;
+
+		box-shadow:
+			0 15px 40px rgba(0,0,0,0.05);
+
+		transition: 0.35s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-8px);
+	}
+
+	.project-card img {
+		width: 100%;
+		height: 320px;
+
+		object-fit: cover;
+	}
+
+	.project-content {
+		padding: 2rem;
+	}
+
+	.project-tag {
+		display: inline-flex;
+
+		padding: 0.45rem 0.9rem;
+
+		background: rgba(245, 158, 11, 0.12);
+
+		color: #d97706;
+
+		border-radius: 999px;
+
+		font-size: 0.8rem;
+		font-weight: 700;
+
+		margin-bottom: 1rem;
+	}
+
+	.project-content h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+
+		color: #111827;
+	}
+
+	.project-content p {
+		color: #6b7280;
+		line-height: 1.7;
+	}
+
+	/* MOBILE */
+
+	@media (max-width: 900px) {
+
+		.hero-content {
+			padding: 2rem;
+		}
+
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.section-title h2 {
+			font-size: 2.2rem;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.project-card img {
+			height: 240px;
+		}
+	}
+
+	@media (max-width: 600px) {
+
+		.hero,
+		.projects {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.project-content {
+			padding: 1.5rem;
+		}
+	}
+
+</style>
