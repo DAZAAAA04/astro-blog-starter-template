@@ -31,9 +31,14 @@ import { SITE_TITLE } from '../consts';
 				href="mailto:maldonadoelectricos@gmail.com"
 				class="email-btn"
 			>
-				maldonadoelectricos@gmail.com
+				Contactar
 			</a>
 		</div>
+
+		<!-- MOBILE MENU -->
+		<button class="menu-btn">
+			☰
+		</button>
 
 	</nav>
 </header>
@@ -72,6 +77,8 @@ import { SITE_TITLE } from '../consts';
 		gap: 1rem;
 
 		text-decoration: none;
+
+		min-width: fit-content;
 	}
 
 	.logo-image {
@@ -186,20 +193,42 @@ import { SITE_TITLE } from '../consts';
 		transform: translateY(-2px);
 	}
 
+	/* MENU BUTTON */
+
+	.menu-btn {
+		display: none;
+
+		border: none;
+		background: transparent;
+
+		font-size: 1.8rem;
+		cursor: pointer;
+
+		color: #111827;
+	}
+
 	/* MOBILE */
 
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
+
+		header {
+			padding: 1rem;
+		}
+
+		nav {
+			gap: 1rem;
+		}
 
 		.internal-links {
 			display: none;
 		}
 
-		.email-btn {
+		.right-section {
 			display: none;
 		}
 
-		header {
-			padding: 1rem;
+		.menu-btn {
+			display: block;
 		}
 
 		.logo-image {
@@ -213,6 +242,21 @@ import { SITE_TITLE } from '../consts';
 
 		.logo-bottom {
 			font-size: 0.9rem;
+		}
+	}
+
+	@media (max-width: 500px) {
+
+		.logo-top {
+			font-size: 0.9rem;
+		}
+
+		.logo-bottom {
+			font-size: 0.8rem;
+		}
+
+		.logo {
+			gap: 0.7rem;
 		}
 	}
 
