@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "Maldonado Electricos";
 export const SITE_DESCRIPTION = "Welcome to my website!";
-export const LOGO_ICON = "/favicon.ico";
+export const LOGO_ICON = "/favicon.svg";
