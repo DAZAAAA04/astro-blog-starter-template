@@ -3,6 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header class="header">
+
 	<nav class="nav">
 
 		<!-- LOGO -->
@@ -11,11 +12,11 @@ import HeaderLink from './HeaderLink.astro';
 
 			<div class="logo-text">
 				<span class="logo-top">MALDONADO</span>
-				<br><span class="logo-bottom">ELÉCTRICOS</span>
+				<span class="logo-bottom">ELÉCTRICOS</span>
 			</div>
 		</a>
 
-		<!-- DESKTOP LINKS -->
+		<!-- NAV LINKS (CENTRADOS) -->
 		<div class="links">
 			<HeaderLink href="/">Servicios</HeaderLink>
 			<HeaderLink href="/blog">Proyectos</HeaderLink>
@@ -27,7 +28,7 @@ import HeaderLink from './HeaderLink.astro';
 			Contactar
 		</a>
 
-		<!-- MOBILE BTN -->
+		<!-- MOBILE -->
 		<button class="menu-btn" id="menuBtn">☰</button>
 
 	</nav>
@@ -35,7 +36,7 @@ import HeaderLink from './HeaderLink.astro';
 	<!-- OVERLAY -->
 	<div class="overlay" id="overlay"></div>
 
-	<!-- MOBILE -->
+	<!-- MOBILE MENU -->
 	<div class="mobile" id="mobileMenu">
 
 		<a href="/">Servicios</a>
@@ -47,6 +48,7 @@ import HeaderLink from './HeaderLink.astro';
 		</a>
 
 	</div>
+
 </header>
 
 <script>
@@ -70,12 +72,12 @@ import HeaderLink from './HeaderLink.astro';
 
 <style>
 
-	/* HEADER BASE */
+	/* HEADER GRANDE */
 	.header {
 		position: sticky;
 		top: 0;
 		z-index: 1000;
-		background: rgba(255,255,255,0.85);
+		background: rgba(255,255,255,0.9);
 		backdrop-filter: blur(12px);
 		border-bottom: 1px solid #e5e7eb;
 	}
@@ -83,44 +85,55 @@ import HeaderLink from './HeaderLink.astro';
 	.nav {
 		max-width: 1200px;
 		margin: auto;
-		padding: 1rem 2rem;
+		padding: 1.4rem 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 2rem;
 	}
 
-	/* LOGO */
+	/* LOGO MÁS GRANDE */
 	.logo {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
 		text-decoration: none;
+		min-width: 220px;
 	}
 
 	.logo-image {
-		width: 64px;
-		height: 64px;
+		width: 60px;
+		height: 60px;
 		object-fit: contain;
 	}
 
+	.logo-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1;
+	}
+
 	.logo-top {
-		font-size: 1.1rem;
-		font-weight: 800;
-		color: #111827;
+		font-size: 1.25rem;
+		font-weight: 900;
 		letter-spacing: 1px;
+		color: #111827;
 	}
 
 	.logo-bottom {
-		font-size: 1rem;
-		font-weight: 600;
+		font-size: 1.1rem;
+		font-weight: 700;
 		color: #2563eb;
 	}
 
-	/* LINKS DESKTOP */
+	/* LINKS CENTRADOS Y PRO */
 	.links {
 		display: flex;
-		gap: 2rem;
 		align-items: center;
+		gap: 2.5rem;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	.links a {
@@ -128,7 +141,8 @@ import HeaderLink from './HeaderLink.astro';
 		color: #374151;
 		font-weight: 500;
 		position: relative;
-		padding: 0.4rem 0;
+		padding: 0.5rem 0;
+		font-size: 1rem;
 		transition: 0.2s ease;
 	}
 
@@ -137,8 +151,8 @@ import HeaderLink from './HeaderLink.astro';
 		position: absolute;
 		left: 0;
 		bottom: -4px;
-		height: 2px;
 		width: 0%;
+		height: 2px;
 		background: #2563eb;
 		border-radius: 999px;
 		transition: 0.3s ease;
@@ -156,7 +170,7 @@ import HeaderLink from './HeaderLink.astro';
 	.cta {
 		background: #2563eb;
 		color: white;
-		padding: 0.75rem 1.2rem;
+		padding: 0.9rem 1.4rem;
 		border-radius: 999px;
 		text-decoration: none;
 		font-weight: 600;
@@ -193,7 +207,7 @@ import HeaderLink from './HeaderLink.astro';
 		pointer-events: all;
 	}
 
-	/* MOBILE */
+	/* MOBILE MENU */
 	.mobile {
 		position: fixed;
 		top: 0;
@@ -236,6 +250,7 @@ import HeaderLink from './HeaderLink.astro';
 
 	/* RESPONSIVE */
 	@media (max-width: 900px) {
+
 		.links,
 		.cta {
 			display: none;
@@ -243,6 +258,10 @@ import HeaderLink from './HeaderLink.astro';
 
 		.menu-btn {
 			display: block;
+		}
+
+		.logo {
+			min-width: auto;
 		}
 	}
 
