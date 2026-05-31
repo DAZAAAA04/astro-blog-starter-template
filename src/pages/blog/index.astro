@@ -48,12 +48,18 @@ const projects = [
 	},
 ];
 ---
+<!doctype html>
 <html lang="es">
+<head>
+	<BaseHead
+		title="Proyectos| Maldonado Eléctricos"
+	/>
+</head>
 <body>
-<Header />
 
-<main>
+	<Header />
 
+	<main>
 	<!-- HERO -->
 	<section class="hero">
 		<div class="container">
@@ -103,10 +109,11 @@ const projects = [
 		</div>
 	</section>
 
-</main>
+	</main>
 
-<Footer />
-	</body>
+	<Footer />
+
+</body>
 </html>
 <style>
 
@@ -115,6 +122,10 @@ const projects = [
 		font-family: Inter, system-ui, sans-serif;
 		background: #f3f4f6;
 		color: #111827;
+	}
+
+	main {
+		width: 100%;
 	}
 
 	/* CONTENEDOR ESTABLE (CLAVE) */
