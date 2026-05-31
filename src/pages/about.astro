@@ -18,7 +18,7 @@ import Footer from '../components/Footer.astro';
 
 		<main>
 
-			<!-- HERO -->
+			<!-- HERO (TU ESTILO ORIGINAL) -->
 			<section class="hero">
 				<div class="container hero-content">
 
@@ -41,7 +41,7 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-			<!-- ABOUT -->
+			<!-- ABOUT (MISMO DISEÑO TUYO) -->
 			<section class="about">
 				<div class="container about-grid">
 
@@ -52,30 +52,35 @@ import Footer from '../components/Footer.astro';
 						<p>
 							Somos una empresa especializada en instalaciones,
 							reparaciones y mantenimiento eléctrico. Nuestro objetivo
-							es brindar soluciones seguras, eficientes y duraderas.
+							es brindar soluciones seguras, eficientes y duraderas,
+							adaptadas a las necesidades de cada cliente.
 						</p>
 
 						<p>
-							Trabajamos en proyectos residenciales, comerciales e
-							industriales con altos estándares de calidad.
+							Trabajamos tanto en proyectos residenciales como
+							comerciales e industriales, manteniendo siempre altos
+							estándares de calidad y cumplimiento normativo.
 						</p>
 
 						<p>
-							Cada proyecto se ejecuta con profesionalismo,
-							transparencia y compromiso.
+							Cada proyecto es ejecutado con profesionalismo,
+							transparencia y compromiso, garantizando resultados que
+							inspiran confianza.
 						</p>
 
 					</div>
 
 					<div class="about-card">
 
-						<div class="card-icon">⚡</div>
+						<div class="card-icon">
+							⚡
+						</div>
 
 						<h3>Comprometidos con la excelencia</h3>
 
 						<p>
-							Soluciones eléctricas modernas, seguras y eficientes
-							para cada tipo de instalación.
+							Desarrollamos soluciones eléctricas modernas,
+							seguras y eficientes para cada tipo de instalación.
 						</p>
 
 					</div>
@@ -83,31 +88,40 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-			<!-- VALUES -->
+			<!-- VALUES (TU DISEÑO LIMPIO) -->
 			<section class="values">
 
 				<div class="container">
 
 					<div class="section-title">
 						<h2>Nuestros valores</h2>
-						<p>Los principios que guían cada trabajo.</p>
+						<p>
+							Los principios que guían cada trabajo que realizamos.
+						</p>
 					</div>
 
 					<div class="values-grid">
 
 						<div class="value-card">
 							<h3>Seguridad</h3>
-							<p>Instalaciones seguras bajo normativa vigente.</p>
+							<p>
+								Aplicamos las mejores prácticas y normativas para
+								garantizar instalaciones seguras.
+							</p>
 						</div>
 
 						<div class="value-card">
 							<h3>Calidad</h3>
-							<p>Materiales certificados y trabajo profesional.</p>
+							<p>
+								Utilizamos materiales y procesos profesionales.
+							</p>
 						</div>
 
 						<div class="value-card">
 							<h3>Compromiso</h3>
-							<p>Cumplimos tiempos y mantenemos transparencia.</p>
+							<p>
+								Cumplimos plazos y mantenemos comunicación clara.
+							</p>
 						</div>
 
 					</div>
@@ -116,7 +130,7 @@ import Footer from '../components/Footer.astro';
 
 			</section>
 
-			<!-- STATS -->
+			<!-- STATS (TU ESTILO) -->
 			<section class="stats">
 
 				<div class="container stats-grid">
@@ -133,23 +147,30 @@ import Footer from '../components/Footer.astro';
 
 					<div class="stat">
 						<h3>100%</h3>
-						<p>Compromiso con clientes</p>
+						<p>Compromiso con nuestros clientes</p>
 					</div>
 
 				</div>
 
 			</section>
 
-			<!-- CTA -->
+			<!-- CTA (TU ESTILO NEGRO + AMARILLO) -->
 			<section class="cta">
 
 				<div class="container">
 
-					<h2>¿Necesitas un electricista profesional?</h2>
+					<h2>
+						¿Necesitas un servicio eléctrico profesional?
+					</h2>
 
-					<p>Estamos listos para ayudarte en tu próximo proyecto.</p>
+					<p>
+						Estamos preparados para ayudarte en tu próximo proyecto.
+					</p>
 
-					<a href="mailto:maldonadoelectricos@gmail.com" class="cta-button">
+					<a
+						href="mailto:maldonadoelectricos@gmail.com"
+						class="cta-button"
+					>
 						Solicitar presupuesto
 					</a>
 
@@ -166,6 +187,7 @@ import Footer from '../components/Footer.astro';
 
 <style>
 
+	/* BASE */
 	:global(body) {
 		margin: 0;
 		font-family: Inter, system-ui, sans-serif;
@@ -177,7 +199,7 @@ import Footer from '../components/Footer.astro';
 		padding: 0 2rem;
 	}
 
-	/* HERO */
+	/* HERO (IGUAL TU ESTILO) */
 	.hero {
 		background: linear-gradient(135deg, #111827, #1f2937);
 		color: white;
@@ -197,9 +219,9 @@ import Footer from '../components/Footer.astro';
 	}
 
 	.hero h1 {
-		font-size: clamp(2.5rem, 5vw, 4.5rem);
-		margin: 1rem 0;
+		font-size: clamp(2.8rem, 6vw, 5rem);
 		line-height: 1.1;
+		margin: 1rem 0;
 	}
 
 	.hero p {
@@ -243,6 +265,10 @@ import Footer from '../components/Footer.astro';
 		margin-bottom: 1rem;
 	}
 
+	.about-card h3 {
+		margin-bottom: 0.5rem;
+	}
+
 	/* VALUES */
 	.values {
 		padding: 6rem 0;
@@ -284,7 +310,11 @@ import Footer from '../components/Footer.astro';
 		color: #f59e0b;
 	}
 
-	/* CTA */
+	.stat p {
+		color: #6b7280;
+	}
+
+	/* CTA (TU ESTILO REAL) */
 	.cta {
 		background: #111827;
 		color: white;
@@ -296,9 +326,9 @@ import Footer from '../components/Footer.astro';
 		display: inline-block;
 		margin-top: 1.5rem;
 		padding: 1rem 2rem;
+		border-radius: 999px;
 		background: #f59e0b;
 		color: white;
-		border-radius: 999px;
 		text-decoration: none;
 		font-weight: 600;
 	}
@@ -309,6 +339,10 @@ import Footer from '../components/Footer.astro';
 		.values-grid,
 		.stats-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: 2.8rem;
 		}
 	}
 
