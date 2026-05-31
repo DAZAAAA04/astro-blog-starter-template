@@ -11,7 +11,6 @@ const projects = [
 			'Instalación de sistema de medida en media tensión 34.5kV en subestación principal.',
 		image: '/colegioamericano.JPG',
 	},
-
 	{
 		title: 'Proyecto PTI Trancelca',
 		category: 'ENERGÍA',
@@ -19,7 +18,6 @@ const projects = [
 			'Pruebas de factor de potencia y excitación para transformador de 120MVA.',
 		image: '/pti-trancelca.JPG',
 	},
-
 	{
 		title: 'Hospital Santo Tomás',
 		category: 'HOSPITALES',
@@ -27,7 +25,6 @@ const projects = [
 			'Mantenimiento preventivo y correctivo en subestación principal de 300kV.',
 		image: '/hospital-santotomas.JPG',
 	},
-
 	{
 		title: 'Cemex Colombia',
 		category: 'INDUSTRIA',
@@ -35,63 +32,30 @@ const projects = [
 			'Mantenimiento eléctrico, transformación y control de plantas industriales.',
 		image: '/cemex-colombia.JPG',
 	},
-
-	{
-		title: 'Proyecto Procaps',
-		category: 'AUTOMATIZACIÓN',
-		description:
-			'Armado de tablero de control y fuerza para sistemas de enfriamiento industrial.',
-		image: '/procaps.JPG',
-	},
-
-	{
-		title: 'Sociedad Portuaria',
-		category: 'MEDIA TENSIÓN',
-		description:
-			'Tendido e instalación de cable XLP subterráneo para sistema de anillo en media tensión.',
-		image: '/sociedad-portuaria.JPG',
-	},
 ];
 ---
 
-<!doctype html>
-<html lang="es">
+<Header />
 
-<head>
-	<BaseHead
-		title="Proyectos"
-		description="Proyectos eléctricos industriales"
-	/>
-</head>
+<main>
 
-<body>
+	<section class="hero">
+		<div class="container hero-inner">
+			<span class="badge">PROYECTOS INDUSTRIALES</span>
 
-	<Header />
+			<h1>Ingeniería eléctrica en campo real</h1>
 
-	<main>
+			<p>
+				Experiencia en energía, industria, hospitales y automatización
+				con altos estándares técnicos y ejecución profesional.
+			</p>
+		</div>
+	</section>
 
-		<!-- HERO FULL WIDTH -->
-		<section class="hero">
+	<section class="projects">
+		<div class="container">
 
-			<div class="hero-inner">
-
-				<span class="badge">PROYECTOS INDUSTRIALES</span>
-
-				<h1>Ingeniería eléctrica en campo real</h1>
-
-				<p>
-					Experiencia en energía, industria, hospitales y automatización
-					en proyectos de alta exigencia técnica.
-				</p>
-
-			</div>
-
-		</section>
-
-		<!-- GRID FULL WIDTH -->
-		<section class="projects">
-
-			<div class="projects-grid">
+			<div class="grid">
 
 				{projects.map((project) => (
 
@@ -115,15 +79,12 @@ const projects = [
 
 			</div>
 
-		</section>
+		</div>
+	</section>
 
-	</main>
+</main>
 
-	<Footer />
-
-</body>
-
-</html>
+<Footer />
 
 <style>
 
@@ -134,16 +95,23 @@ const projects = [
 		color: #111827;
 	}
 
-	/* HERO FULL WIDTH */
-	.hero {
+	/* 🔥 ESTE ES EL SECRETO DEL DISEÑO BUENO */
+	.container {
 		width: 100%;
-		padding: 5rem 3rem;
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	/* HERO BIEN RESPIRADO */
+	.hero {
 		background: white;
+		padding: 5rem 0;
 		border-bottom: 1px solid #e5e7eb;
 	}
 
 	.hero-inner {
-		width: 100%;
+		text-align: left;
 	}
 
 	.badge {
@@ -158,47 +126,43 @@ const projects = [
 	}
 
 	h1 {
-		font-size: 3.5rem;
+		font-size: 3.2rem;
 		margin-bottom: 1rem;
 	}
 
 	p {
-		color: #6b7280;
-		font-size: 1.1rem;
 		max-width: 800px;
+		color: #6b7280;
 		line-height: 1.8;
+		font-size: 1.1rem;
 	}
 
-	/* GRID FULL WIDTH (SIN LIMITES) */
+	/* GRID PROFESIONAL */
 	.projects {
-		width: 100%;
-		padding: 0;
+		padding: 4rem 0 6rem;
 	}
 
-	.projects-grid {
-		width: 100%;
+	.grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2.5rem;
 	}
 
-	/* CARD FULL WIDTH STYLE INDUSTRIAL */
 	.card {
 		background: white;
-		border-right: 1px solid #e5e7eb;
-		border-bottom: 1px solid #e5e7eb;
+		border-radius: 20px;
 		overflow: hidden;
+		box-shadow: 0 15px 40px rgba(0,0,0,0.06);
 		transition: 0.3s ease;
 	}
 
 	.card:hover {
-		transform: scale(1.01);
-		z-index: 2;
+		transform: translateY(-6px);
 	}
 
 	.card img {
 		width: 100%;
-		height: 320px;
+		height: 340px;
 		object-fit: cover;
 	}
 
@@ -218,7 +182,7 @@ const projects = [
 	}
 
 	h3 {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		margin-bottom: 0.8rem;
 	}
 
@@ -228,16 +192,8 @@ const projects = [
 	}
 
 	/* RESPONSIVE */
-	@media (max-width: 1100px) {
-
-		.projects-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 700px) {
-
-		.projects-grid {
+	@media (max-width: 900px) {
+		.grid {
 			grid-template-columns: 1fr;
 		}
 
